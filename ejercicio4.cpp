@@ -11,7 +11,7 @@ int tamano_iterativo(string a){
     return i;
 }
 
-int tamano_recursivo(string a, int c){
+int tamano_recursivo(string a, int c=0){
     if(a[c]=='\0')
         return c;
     else 
@@ -19,11 +19,10 @@ int tamano_recursivo(string a, int c){
 }
 
 int main(){
-    int c=0;
     cout<<"ingrese una palabra: ";
     string palabra;
     getline(cin,palabra);
     cout<<"el tamano de la cadena es(iterativo): "<<tamano_iterativo(palabra)<<"\n";
-    cout<<"el tamano de la cadena es(recursivo): "<<tamano_recursivo(palabra, c);
+    cout<<"el tamano de la cadena es(recursivo): "<<tamano_recursivo(palabra);
     return 0;
 }

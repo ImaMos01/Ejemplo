@@ -2,26 +2,30 @@
 
 using namespace std;
 
-int invertir_iteracion(int a[], int t){
-    int c=0;
-    for (int i=0; i<t/2; i++){
-        c=a[i];
-        a[i]=a[(t-1)-i];
-        a[(t-1)-i]=c;
-    }
-    return a[t];
+void swap(int &a, int &b){
+    int c=a;
+    a=b;
+    b=c;
 }
 
 int invertir_recursiva(int a[], int t, int b){
-    int c=0;
-    if(t==t/2){
-        c=a[t];
-        a[t]=a[(b-1)-t];
-        a[(b-1)-t]=c;
+    if(b==t/2){
+        swap(a[b],a[(t-1)-b]);
+        return a[b];
+    }
+    else{
+        swap(a[b],a[(t-1)-b]);
+        return invertir_recursiva(a,t,b+1);
+    }
+} 
+
+int invertir_recursiva(int a[], int t, int b){
+    if(b==(t-1)/2){
+        swap(a[b],a[(t-1)-b]);
         return a[t];
     }
     else{
-        return invertir_recursiva(a,t-1,b);
+        return invertir_recursiva(a,t,b+1);
     }
 }   
 
@@ -55,7 +59,7 @@ int main(){
         }
     
         else if(d==1){
-            b=t; //para conservar el tamaño original
+            b=0;//para conservar el tamaño original
             cout<<"\ncon recursividad: \n";
             invertir_recursiva(a,t,b);
             mostrar(a,t);

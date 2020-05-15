@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void swap(int a, int b){
+void swap(int &a, int &b){
     int c=a;
     a=b;
     b=c;
@@ -11,10 +11,8 @@ void swap(int a, int b){
 int buble_sort(int a[], int b){ //usamoes el ordenamiento burbuja 
     for (int i = 0; i < b-1; i++)
         for (int j = 0; j < b-i-1; j++) 
-            if (a[j] > a[j+1]) { 
-                int c=a[j];
-                a[j]=a[j+1];
-                a[j+1]=c;
+            if (a[j] > a[j+1]) {
+                swap(a[j],a[j+1]);
             }
     return a[b];
 }

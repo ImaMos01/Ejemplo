@@ -3,12 +3,19 @@
 
 using namespace std;
 
+int tamcade(char a[]){
+    int i=0;
+    while(a[i]!='\0') 
+        i++;
+    return i;
+}
+
 void copiar(char a[], char b[]){
     int i=0;
     for (i=0; a[i]!='\0'; i++){
         b[i]=a[i];
     }
-    if (strlen(a)<strlen(b));
+    if (tamcade(a)<tamcade(b));
         while(b[i]!='\0'){
             b[i]=' ';
             i++;
